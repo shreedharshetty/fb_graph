@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:fb="http://www.facebook.com/2008/fbml">
   <head>
-    <title>FbGraphSample</title>
+    <title>Demo Project</title>
     <meta property="fb:app_id" content="<%= Facebook.config[:client_id] %>">
     <!--[if IE]>
     <script type="text/javascript" src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
     <%= stylesheet_link_tag 'base', 'layout', 'gritter', controller_name %>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.8/jquery-ui.min.js"></script>
+     <%= stylesheet_link_tag 'jquery-ui-1.8.17.custom.css' %>
     <%= javascript_include_tag 'rails', 'jquery.gritter' %>
+    <%= javascript_include_tag 'rails', 'jquery-ui-timepicker-addon' %>
     <%= csrf_meta_tag %>
     <%= yield :head %>
   </head>
   <body>
     <div id="fb-root"></div>
-    <h1><%= link_to "FbGraph Sample", root_path %></h1>
+    <h1><%= link_to "Facebook status Scheduler", root_path %></h1>
     <div class="container">
       <div class="main">
         <%= yield %>
@@ -51,5 +54,10 @@
         <% end %>
       });
     </script>
+    <script>
+    $('.time').datetimepicker({
+          ampm: true
+    });
+    </script>  
   </body>
 </html>
